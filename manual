@@ -1,0 +1,55 @@
+Checking the linked article and extracting the functions mentioned.
+
+
+
+Fetched https://velog.io/@kyj93790/solong-cub3D-Minilibxmlx-톺아보기
+
+## MinilibX 함수 정리
+
+### 1. 초기화
+- `void *mlx_init()`
+  - 프로그램과 디스플레이(screen)를 연결하고 `mlx_ptr` 식별자를 반환
+
+### 2. 윈도우 관리
+- `void *mlx_new_window(void *mlx_ptr, int size_x, int size_y, char *title)`
+  - 새로운 창 생성
+- `int mlx_clear_window(void *mlx_ptr, void *win_ptr)`
+  - 창을 검정색으로 초기화
+- `int mlx_destroy_window(void *mlx_ptr, void *win_ptr)`
+  - 창 파괴 / 연결 해제
+
+### 3. 윈도우 내부 그리기
+- `int mlx_pixel_put(void *mlx_ptr, void *win_ptr, int x, int y, int color)`
+  - 지정 좌표에 픽셀 하나 그리기
+- `int mlx_string_put(void *mlx_ptr, void *win_ptr, int x, int y, int color, char *string)`
+  - 문자열 출력
+
+### 4. 이미지 조작
+- `void *mlx_new_image(void *mlx_ptr, int width, int height)`
+  - 새 이미지 생성
+- `int mlx_put_image_to_window(void *mlx_ptr, void *win_ptr, void *img_ptr, int x, int y)`
+  - 이미지를 창에 출력
+- `char *mlx_get_data_addr(void *img_ptr, int *bits_per_pixel, int *size_line, int *endian)`
+  - 이미지 데이터 주소 및 비트/라인/엔디언 정보 얻기
+- `unsigned int mlx_get_color_value(void *mlx_ptr, int color)`
+  - 디스플레이에 맞는 컬러 값 변환
+- `void *mlx_xpm_to_image(void *mlx_ptr, char **xpm_data, int *width, int *height)`
+  - XPM 데이터로 이미지 생성
+- `void *mlx_xpm_file_to_image(void *mlx_ptr, char *filename, int *width, int *height)`
+  - XPM 파일로 이미지 생성
+- `void *mlx_png_file_to_image(void *mlx_ptr, char *filename, int *width, int *height)`
+  - PNG 파일로 이미지 생성
+- `int mlx_destroy_image(void *mlx_ptr, void *img_ptr)`
+  - 이미지 파괴
+
+### 5. 이벤트 처리
+- `int mlx_loop(void *mlx_ptr)`
+  - 이벤트 루프 실행
+- `int mlx_key_hook(void *win_ptr, int (*funct_ptr)(), void *param)`
+  - 키보드 이벤트 등록
+- `int mlx_mouse_hook(void *win_ptr, int (*funct_ptr)(), void *param)`
+  - 마우스 클릭 이벤트 등록
+- `int mlx_expose_hook(void *win_ptr, int (*funct_ptr)(), void *param)`
+  - 노출(expose) 이벤트 등록
+- `int mlx_loop_hook(void *win_ptr, int (*funct_ptr)(), void *param)`
+  - 이벤트가 없어도 반복 호출되는 루프 콜백 등록
