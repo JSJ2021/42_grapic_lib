@@ -60,7 +60,7 @@ int main(void)
 
     // 생성한 이미지 버퍼를 윈도우에 표시
     mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-
+    mlx_clear_window(mlx, mlx_win);
     // 이벤트 루프를 시작하여 창이 닫히기 전까지 실행 유지
     mlx_loop(mlx);
     return (0);
